@@ -1,4 +1,4 @@
-// Core and DOM Variables
+/** App Vars */
 const encoder = new TextEncoder()
 const sasContainerEl = document.querySelector('#sas-container')
 const sasEl = document.querySelector('#sas') as HTMLPreElement
@@ -8,7 +8,7 @@ const uriInput = document.querySelector('#uri') as HTMLInputElement
 const saNameInput = document.querySelector('#sa-name') as HTMLInputElement
 const saKeyInput = document.querySelector('#sa-key') as HTMLInputElement
 
-// DOM stuff
+/** DOM Stuff */
 document.querySelector('#sas-form')?.addEventListener('submit', (evt) => {
   evt.preventDefault()
   disableInputs(uriInput, saNameInput, saKeyInput, submitEl)
@@ -55,7 +55,7 @@ const durations = {
   years: (years: number) => years * 31536000
 }
 
-// Main Sig Function
+/** Main Sig Function */
 function generateSharedAccessToken(uri: string, saName: string, saKey: string) {
   const encoded = encodeURIComponent(uri)
   const now = new Date()
