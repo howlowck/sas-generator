@@ -63,15 +63,15 @@ function generateSharedAccessToken(uri: string, saName: string, saKey: string) {
   const ttl = Math.round(now.getTime() / 1000) + secsInFuture
   const signature = encoded + '\n' + ttl
   const sigUtf8 = encoder.encode(signature)
-  console.log('ttl', ttl)
-  console.log('sig', signature)
-  console.log('sigUtf8', sigUtf8)
+  // console.log('ttl', ttl)
+  // console.log('sig', signature)
+  // console.log('sigUtf8', sigUtf8)
   return getCryptoKey(saKey)
     .then(cryptoKey => {
       return generateToken(sigUtf8, cryptoKey)
     })
     .then(token => {
-      console.log('token', token)
+      // console.log('token', token)
       return 'SharedAccessSignature sr=' + encoded + '&sig=' +  
           encodeURIComponent(token) + '&se=' + ttl + '&skn=' + saName; 
     })
